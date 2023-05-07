@@ -203,3 +203,25 @@ RBS is available in many editors. Today I use VS Code and the following two exte
 But RBS is also available in Vim, Emacs, and other editors if it supports LSP.
 
 This link is a list of useful extensions for RBS. I recommend you install them if you use RBS.
+
+## After Events
+
+I will introduce two events related to me and RubyKaigi.
+
+(next: BaySide Tech Nite)
+
+The first event is "BaySide Tech Nite". Shippio and Money Forward, which is my company, will hold this event on May 19th in Tokyo.
+The topic of this event is Ruby and RubyKaigi, and talking in English.
+Feel free to join this event if you are interested in it.
+
+But unfortunately, I can't attend this event.
+
+(next: Contribute to OSS)
+
+The second event is "OSSへのコントリビュート". Timee holds this event on May 25th in Tokyo. It has an online option too.
+In this event, I, mame-san who is yesterday's speaker, and sinsoku-san will talk about how to contribute to OSS.
+I'll talk about how to start contributing to OSS from RBS. If you are interested in contributing to OSS as the Kaigi-Effect, please join this event.
+
+## Conclusion
+
+Thanks for listening to my talk!
