@@ -108,12 +108,13 @@ Think about the following situation.
 You are developing a large Ruby application. You want to introduce RBS to the application.
 So you run an RBS generator, such as `rbs prototype`, to generate RBS files from your codebase. Because it is hard to write RBS files from scratch for the entire application.
 
+TODO: describe the example code
 But the generated file is not perfect. The generated RBS contains many "untyped" definitions. So, you want to clarify the "untyped" definitions by adding type annotations to them.
 
 But editing auto-generated files is not a good idea. Because the next time you run the RBS generator, your changes will be overwritten by the generator. So we want to manage auto-generated files and hand-written files separately.
 
 But if you just write a method definition to a separate file, you will get a duplicate definition error. Because RBS does not allow duplicate method definitions.
-So you need to remove the duplicate definitions from the auto-generated files.
+So you need to remove the duplication from the auto-generated files.
 
 `rbs subtract` removes duplicate definitions from RBS files. So you can use it to remove duplicate definitions from auto-generated files.
 
