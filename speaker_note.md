@@ -224,4 +224,11 @@ I'll talk about how to start contributing to OSS from RBS. If you are interested
 
 ## Conclusion
 
-Thanks for listening to my talk!
+To conclude my presentation, I'd like to sum up now.
+
+First, I shared new features of RBS 3.1. They are `rbs subtract` and `rbs parse`. I hope you will use them.
+
+Second, I demonstrated how to introduce RBS to an application.
+
+That's all for my talk. I hope you enjoyed it.
+Thanks for listening to my talk! Enjoy the closing keynote by soutaro-san!
