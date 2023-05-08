@@ -43,6 +43,7 @@
   * completion
   * type checking
   * hover
+  * list に --type-alias
 * Demo (large application) 7min
   * rubyci
     * fetch_recent
