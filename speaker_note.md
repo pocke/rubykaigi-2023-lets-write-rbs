@@ -2,14 +2,14 @@
 
 ## Title
 
-Hello everyone, I'm Masataka Kuwabara. Today, I'll talk about writing RBS.
+Hello everyone, I'm Masataka Pocke Kuwabara. Today, I'll talk about writing RBS.
 
 ## Self-introduction
 
+First, let me introduce myself.
+
 I'm a software engineer at Money Forward.
 In Money Forward, I'm working on the development of a Ruby on Rails application and the maintenance of the RBS project.
-
-Pocke is my handle name. Please follow me on SNS.
 
 ## For contributors
 
@@ -22,7 +22,7 @@ Thank you for your contribution! (clap)
 This talk is divided into two parts.
 
 First, I'll talk about the features of RBS.
-RBS 3.1 introduced new features to make it easier to write RBS. So I'd like to introduce them.
+Recently RBS 3.1 was released. RBS 3.1 introduced new features to make it easier to write RBS. So I'd like to introduce them.
 And I'll also introduce other tools existing before RBS 3.1. I'll use them in the second part, demonstration.
 
 Second, I'll demonstrate how to develop a Ruby application using RBS. 
@@ -45,8 +45,8 @@ The second command does the same thing, but it overwrites the result to `a.rbs`.
 (next: example)
 
 Here is an example of the result of `rbs subtract`.
-The `a.rbs` file contains two method definitions, `C#f` and `C#g`. And the `b.rbs` file contains one method definition, `C#f`.
-The result of `rbs subtract` only contains the definition of `C#g`. Because `C#f` is already defined in `b.rbs`, so it is removed from the result.
+The `a.rbs` file contains two method definitions, `C#foo` and `C#bar`. And the `b.rbs` file contains one method definition, `C#foo`.
+The result of `rbs subtract` only contains the definition of `C#bar`. Because `C#foo` is already defined in `b.rbs`, so it is removed from the result.
 
 TOOD: demo
 
@@ -141,13 +141,10 @@ The second tool is `rbs prototype`.
 `rbs prototype` is a command to generate RBS files from Ruby code.
 I'll use this command in the demonstration later. 
 
-## Steep
+## Other tools
 
-## RBS Rails
-
-It is `rbs_rails`.
-
-`rbs_rails` is a gem to generate RBS files from Ruby on Rails applications. I'll also use this gem in the demonstration later.
+In this demonstration, I'll use these tools too. They are Steep and RBS Rails.
+I do not describe them in detail in this talk. See the GitHub repository for more information.
 
 ## Editor integration
 
