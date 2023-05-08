@@ -1,63 +1,8 @@
-# Content
-
-30min
-
-* 目的
-  * RBSを使った開発を知れる
-  * rbs subtract 作った話
-* ツールの紹介をする
-  * こういうツールを使う必要がある / 使うと便利という話をする
-* エディタ設定の紹介をする(かるく)
-  * リンクを紹介する
-* デモ
-  * 完成形(ruby/rbs)
-    * 補完
-    * 型エラー
-  * 既存コードに型付けしていく
-    * ここをメインにしたい(subtractの話をするし)
-    * Rails Application
-      * 生成したrbsはコミットしなくても良い
-    * gem
-      * 生成したrbsはコミットしたい
-  * 新規アプリに型付けしていく
-
-# Outline
-
-* Self introduction 1min
-* Company Introduction 1min
-* Agenda 1min
-* The new features of RBS 3.1 9min
-  * https://github.com/ruby/rbs/wiki/Release-Note-3.1
-  * Describe subtract
-    * I use this tool in the demo
-  * rbs parse
-* Describe other tools 5min
-  * Because they are used in the demo
-  * prototype
-  * collection
-* Describe editor integration 1min
-  * https://github.com/ruby/rbs/blob/master/docs/tools.md
-* Demo (ruby/rbs) 3min
-  * Steep がいい感じに動いているところを見せる
-  * completion
-  * type checking
-  * hover
-* Demo (large application) 7min
-  * rubyci
-    * fetch_recent
-* Introduce After Events 1min
-* Conclusion 1min
-
 # Speaker note
 
 ## Title
 
 Hello everyone, I'm Masataka Kuwabara. Today, I'll talk about writing RBS.
-
-## For contributors
-
-First of all, I'd like to introduce the RBS contributors. They are the contributors to the RBS project. I'm very grateful to them.
-Thank you for your contribution! (clap)
 
 ## Self-introduction
 
@@ -65,6 +10,12 @@ I'm a software engineer at Money Forward.
 In Money Forward, I'm working on the development of a Ruby on Rails application and the maintenance of the RBS project.
 
 Pocke is my handle name. Please follow me on SNS.
+
+## For contributors
+
+Before this talk, I'd like to introduce the RBS contributors. They are the contributors to the RBS project. I'm very grateful to them.
+Thank you for your contribution! (clap)
+
 
 ## Agenda
 
@@ -104,22 +55,24 @@ TOOD: demo
 Next, I'd like to talk about why `rbs subtract` is necessary.
 It is necessary to modify auto-generated RBS files in a maintainable way.
 
-Think about the following situation.
-You are developing a large Ruby application. You want to introduce RBS to the application.
+Think about this situation.
+You are developing a large Ruby application, and you want to introduce RBS to the application.
 So you run an RBS generator, such as `rbs prototype`, to generate RBS files from your codebase. Because it is hard to write RBS files from scratch for the entire application.
 
-TODO: describe the example code
-But the generated file is not perfect. The generated RBS contains many "untyped" definitions. So, you want to clarify the "untyped" definitions by adding type annotations to them.
+But the generated file is not perfect. This is an example of the generated RBS.
+(NOTE: If some talks mention more smart RBS generators, I'll mention it here)
+The generated RBS contains many "untyped" definitions. For example, the `foo` method looks receives an Integer and returns a String, but the returned type in the generated RBS is `untyped`.
+So, you want to clarify the "untyped" definitions in the generated RBS by adding type annotations to them.
 
-But editing auto-generated files is not a good idea. Because the next time you run the RBS generator, your changes will be overwritten by the generator. So we want to manage auto-generated files and hand-written files separately.
+But editing auto-generated files is not a good idea.
+Because the next time you run the RBS generator, your changes will be overwritten by the generator. So we want to manage auto-generated files and hand-written files separately.
 
 But if you just write a method definition to a separate file, you will get a duplicate definition error. Because RBS does not allow duplicate method definitions.
 So you need to remove the duplication from the auto-generated files.
 
 `rbs subtract` removes duplicate definitions from RBS files. So you can use it to remove duplicate definitions from auto-generated files.
 
-This tool is especially useful when you want to introduce RBS to a large application, like this situation.
-
+This tool is especially useful when you develop a large application.
 
 (next: example workflow)
 
@@ -192,7 +145,7 @@ I'll use this command in the demonstration later.
 
 ## RBS Rails
 
-The third tool is `rbs_rails`.
+It is `rbs_rails`.
 
 `rbs_rails` is a gem to generate RBS files from Ruby on Rails applications. I'll also use this gem in the demonstration later.
 
