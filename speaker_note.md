@@ -231,6 +231,8 @@ Then, this method is well typed. We can confirm it by the hover feature of VS Co
 
 ### Demo 2: Development experience
 
+The second demo shows the development experience using RBS on rbs repository itself.
+
 
 ## After Events
 
