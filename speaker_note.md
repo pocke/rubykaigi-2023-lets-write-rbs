@@ -176,6 +176,8 @@ The second demo shows the development experience using RBS.
 
 ### Demo 1: Start using RBS
 
+#### Preparation
+
 In this demo, I'll show you how to start using RBS on an existing application.
 I use ruby/rubyci repository for this demo. It is a small Rails application.
 
@@ -209,6 +211,23 @@ It generates RBS files, so let's add them to gitignore.
 
 The preparation is done. Let's start writing RBS.
 
+#### Writing RBS
+
+First, try to execute steep. We can execute "restart steep" command on VS Code. If you want to use it on command line, you can also use `steep check` command.
+Yeah, it displays many errors. But today, I do not fix them. I only focus on using `rbs subtract`. 
+
+Today I edit `report.rb` file. I'd like to focus on `fetch_recent` method.
+This method calls `get_reports_rubyci_s3` method. But as you can see by the hover, the argument and returned types are untyped. It means this method does not check types.
+So, let's add types to this method.
+
+First, find the auto-generated RBS of this method. We can find the RBS by the "Go to Definition" feature of LSP.
+Then, copy the definition to `sig/app/models/report.rbs` to avoid editing auto-generated RBS.
+
+But it causes an duplication error. So, let's execute `rbs subtract` command. We can execute `bin/rake rbs:subtract` command.
+After that, the duplication has been removed. And the error has been fixed.
+So correct the copied type. The argument is Aws::S3::Resource and Server, and the returned type is an optional Integer.
+
+Then, this method is well typed. We can confirm it by the hover feature of VS Code.
 
 ### Demo 2: Development experience
 
