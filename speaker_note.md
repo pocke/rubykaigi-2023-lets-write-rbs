@@ -200,6 +200,14 @@ This is rbs.rake file.
 `clean` task cleans generated RBS files.
 `collection` task runs `rbs collection install`, I executed it before.
 `prototype` task runs `rbs prototype` command. It generates RBS files from `app` directory to sig/prototype directory.
+`subtract` task runs `rbs subtract` command. It removes the duplication.
+And `setup` task runs the above tasks.
+Let's commit them.
+
+`rbs:setup` rake task is available now. Run `bin/rake rbs:setup`. It setup the environment.
+It generates RBS files, so let's add them to gitignore.
+
+The preparation is done. Let's start writing RBS.
 
 
 ### Demo 2: Development experience
