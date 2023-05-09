@@ -23,7 +23,7 @@ This talk is divided into two parts.
 
 First, I'll talk about the features of RBS.
 Recently RBS 3.1 was released. RBS 3.1 introduced new features to make it easier to write RBS. So I'd like to introduce them.
-And I'll also introduce other tools existing before RBS 3.1. I'll use them in the second part, it's demonstration.
+And I'll also introduce other tools existing before RBS 3.1. I'll use them in the second part, it's a demonstration.
 
 Second, I'll demonstrate how to develop a Ruby application using RBS. 
 Currently, we can develop Ruby applications using RBS. So I'd like to show you the development experience and the tools we use.
@@ -169,6 +169,41 @@ But RBS is also available in Vim, Emacs, and other editors if it supports LSP.
 This link is a list of useful extensions for RBS in many editors. I recommend you install them if you use RBS.
 
 ## DEMO
+
+I have two demos today.
+The first demo shows how to start using RBS on an existing application.
+The second demo shows the development experience using RBS.
+
+### Demo 1: Start using RBS
+
+In this demo, I'll show you how to start using RBS on an existing application.
+I use ruby/rubyci repository for this demo. It is a small Rails application.
+
+So, let's start the demo.
+This is the repository. I already git cloned the repository and installed dependencies.
+
+First, add the gems related to RBS to the Gemfile and run `bundle install`.
+Open `Gemfile`, and add rbs, rbs_rails, and steep. Do not forget add `require: false`. And run `bundle install`.
+Ok, let's git commit the changes.
+
+Next, initialize `rbs collection`. Run `bundle exec rbs collection init`, and `install`. It installs dependent libraries' RBSs.
+I also need to ignore `.gem_rbs_collection/` directory. Open gitignore and ignore it.
+Ok, commit them.
+
+After that, initialize Steep.
+Run `bundle exec steep init`. It creates Steepfile so open Steepfile.
+let's comment-in the setting. This setting checks app/ directory with RBSs in sig/ directory.
+then commit them.
+
+Then, add a rake task to prepare RBS files. I'm copying the code to lib/tasks/rbs.rake.
+This is rbs.rake file.
+`clean` task cleans generated RBS files.
+`collection` task runs `rbs collection install`, I executed it before.
+`prototype` task runs `rbs prototype` command. It generates RBS files from `app` directory to sig/prototype directory.
+
+
+### Demo 2: Development experience
+
 
 ## After Events
 
