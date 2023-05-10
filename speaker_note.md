@@ -23,7 +23,7 @@ This talk is divided into two parts.
 
 First, I'll talk about the features of RBS.
 Recently RBS 3.1 was released. RBS 3.1 introduced new features to make it easier to write RBS. So I'd like to introduce them.
-And I'll also introduce other tools existing before RBS 3.1. I'll use them in the second part, it's a demonstration.
+~And I'll also introduce other tools existing before RBS 3.1. I'll use them in the second part, it's a demonstration.~
 
 Second, I'll demonstrate how to develop a Ruby application using RBS. 
 Currently, we can develop Ruby applications using RBS. So I'd like to show you the development experience and the tools we use.
@@ -38,7 +38,7 @@ The first feature is `rbs subtract`.
 This is a tool to remove duplicate definitions from RBS files.
 
 For example, suppose you have two RBS files, `a.rbs` and `b.rbs`.
-In this case, you can remove duplicate definitions from `a.rbs` by running the first command. It displays the result on the standard output.
+In this case, you can remove duplicate definitions from `a.rbs` by running the first command. It's `rbs subtract a.rbs b.rbs`. It displays the result on the standard output.
 
 The second command does the same thing, but it overwrites the result to `a.rbs`.
 
@@ -56,9 +56,11 @@ TOOD: demo
 Next, I'd like to talk about why `rbs subtract` is necessary.
 It is necessary to modify auto-generated RBS files in a maintainable way.
 
+#### Why necessary: example situation
+
 Think about this situation.
 You are developing a large Ruby application, and you want to introduce RBS to the application.
-So you run an RBS generator, such as `rbs prototype`, to generate RBS files from your codebase. Because it is hard to write RBS files from scratch for the entire application.
+In this case, you may want to use an RBS generator, such as `rbs prototype`, to generate RBS files from your codebase. Because it is hard to write RBS files from scratch for the entire application.
 
 #### Why necessary: generated RBS
 
@@ -70,7 +72,7 @@ The generated RBS contains many "untyped" definitions. For example, the `foo` me
 So, you want to clarify the "untyped" definitions in the generated RBS by adding type annotations to them.
 
 But editing auto-generated files is not a good idea.
-Because the next time you run the RBS generator, your changes will be overwritten by the generator. So we want to manage auto-generated files and hand-written files separately.
+Because the next time you run the RBS generator, your changes will be overwritten by the generator. So we want to manage separately auto-generated files and hand-written files.
 
 #### Why necessary: problem
 
@@ -81,11 +83,12 @@ In this case, the `foo` method is duplicated. Then it raises the error.
 
 #### Why necessary: Solution
 
-`rbs subtract` removes duplicate definitions from RBS files. So you can use it for auto-generated files.
+The solution is `rbs subtract`.
+`rbs subtract` removes duplication from RBS files. So you can use it for auto-generated files.
 
 This tool is especially useful when you develop a large application.
 
-In this case, `subtracted.rbs` has no `foo` method definition. So it does not raise the error when you use hand-written.rbs and subtracted.rbs together.
+In this example, it removes `foo` method definition from `subtracted.rbs`. So it does not raise the error when you use hand-written.rbs and subtracted.rbs together.
 
 #### example workflow
 
@@ -94,7 +97,7 @@ The first command generates RBS files from the application codebase using `rbs p
 
 Then, write type definitions under `sig/hand-written/` directory. You can write type definitions to the directory without worrying about duplication.
 
-After that, run `rbs subtract` to remove duplication from the generated RBS files. This command removes duplicate definitions from the generated RBS files and writes the result to the `sig/prototype/` directory.
+After that, run `rbs subtract` to remove duplication from the generated RBS files. This command removes duplication from the generated RBS files and writes the result to the `sig/prototype/` directory.
 Finally, the generated RBS and the hand-written RBS are available. You can type-check your application using these RBS files.
 
 ### rbs parse
@@ -127,7 +130,7 @@ But now you can directly parse the RBS string from the command line using the `-
 They are examples of the `--type` and `--method-type` options. These options are useful with the `-e` option.
 Previously, you had to write a dummy class or method definition to parse a type signature. Because RBS does not allow type or method signatures outside of a class or method definitions.
 
-In the first example, without these options, `rbs parse` command parses the code as a whole of RBS. So it needs `class C` definition and method `f` definition.
+In the first example, without these options, `rbs parse` command parses the code as a whole of RBS. So it needs `class C` and method `f` definition.
 
 In the second example, with `--method-type` option,  `rbs parse` command parses the code as a method signature. So, you don't need `class C` definition. It just needs the content of the method definition.
 
@@ -163,7 +166,7 @@ I do not describe them in detail in this talk. See the GitHub repository for mor
 
 In this section, I'll introduce editor integration.
 
-RBS is available in many editors. Today I use VS Code and the these two extensions, RBS Syntax and Steep.
+RBS is available in many editors. In the today demonstration, I use VS Code and the these two extensions, RBS Syntax and Steep.
 But RBS is also available in Vim, Emacs, and other editors if it supports LSP.
 
 This link is a list of useful extensions for RBS in many editors. I recommend you install them if you use RBS.
