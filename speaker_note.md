@@ -66,8 +66,6 @@ In this case, you may want to use an RBS generator, such as `rbs prototype`, to 
 
 But the generated file is not perfect. This is an example of the generated RBS.
 
-(NOTE: If some talks mention more smart RBS generators, I'll mention it here)
-
 This example uses `rbs prototype`.
 
 The generated RBS contains many "untyped" definitions. For example, the `foo` method looks receives an Integer and returns a String, but the generated RBS does not contain this information. It only shows they are "untyped".
