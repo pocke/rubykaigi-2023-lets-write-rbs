@@ -8,7 +8,7 @@ Hello everyone, I'm Masataka Pocke Kuwabara. Today, I'll talk about writing RBS.
 
 First, let me introduce myself.
 
-I'm a software engineer at Money Forward.
+I'm a software engineer at Money Forward. I am NOT a flat earth believer.
 In Money Forward, I'm working on the development of a Ruby on Rails application and the maintenance of the RBS project.
 
 ## For contributors
@@ -53,7 +53,7 @@ TOOD: demo
 
 #### why rbs subtract is necessary
 
-Next, I'd like to talk about why `rbs subtract` is necessary.
+Yeah,I guess you may think "Why is `rbs subtract` necessary?". I'll explain it.
 It is necessary to modify auto-generated RBS files in a maintainable way.
 
 #### Why necessary: example situation
@@ -67,6 +67,8 @@ In this case, you may want to use an RBS generator, such as `rbs prototype`, to 
 But the generated file is not perfect. This is an example of the generated RBS.
 
 (NOTE: If some talks mention more smart RBS generators, I'll mention it here)
+
+This example uses `rbs prototype`.
 
 The generated RBS contains many "untyped" definitions. For example, the `foo` method looks receives an Integer and returns a String, but the generated RBS does not contain this information. It only shows they are "untyped".
 So, you want to clarify the "untyped" definitions in the generated RBS by adding type annotations to them.
@@ -92,12 +94,12 @@ In this example, it removes `foo` method definition from `subtracted.rbs`. So it
 
 #### example workflow
 
-This is a simple example workflow for introducing RBS to a large application.
+This is a simple example workflow for introducing RBS to a application.
 The first command generates RBS files from the application codebase using `rbs prototype rb`. This command generates RBS files in the `sig/prototype/` directory from `app` and `lib` directories.
 
 Then, write type definitions under `sig/hand-written/` directory. You can write type definitions to the directory without worrying about duplication.
 
-After that, run `rbs subtract` to remove duplication from the generated RBS files. This command removes duplication from the generated RBS files and writes the result to the `sig/prototype/` directory.
+After that, run `rbs subtract` to remove duplication from the generated RBS files. This command removes duplication from the generated RBS files and overwrites the result to the `sig/prototype/` directory.
 Finally, the generated RBS and the hand-written RBS are available. You can type-check your application using these RBS files.
 
 ### rbs parse
@@ -117,7 +119,7 @@ I added new two kinds of options, `-e`, `--type`, and `--method-type`.
 
 `--type` and `--method-type` specify the context to parse RBS. You can use them to parse a type signature without writing a dummy class or method definition.
 
-Let's see examples of these options.
+I'd like to introduce these option in detail, but I do not have enough time. So I'll skip the slides.
 
 #### Example: -e
 
@@ -164,18 +166,17 @@ I do not describe them in detail in this talk. See the GitHub repository for mor
 
 ## Editor integration
 
-In this section, I'll introduce editor integration.
+In this section, I'll introduce editor integrations.
 
-RBS is available in many editors. In the today demonstration, I use VS Code and the these two extensions, RBS Syntax and Steep.
+RBS is available in many editors. In today's demonstration, I use VS Code and the these two extensions, RBS Syntax and Steep.
 But RBS is also available in Vim, Emacs, and other editors if it supports LSP.
 
 This link is a list of useful extensions for RBS in many editors. I recommend you install them if you use RBS.
 
 ## DEMO
 
-I have two demos today.
-The first demo shows how to start using RBS on an existing application.
-The second demo shows the development experience using RBS.
+I have a demo today.
+The demo shows how to start using RBS on an existing application.
 
 ### Demo 1: Start using RBS
 
