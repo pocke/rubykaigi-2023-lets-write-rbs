@@ -3,7 +3,7 @@
 ## Title
 
 Hello everyone, I'm Masataka Pocke Kuwabara. Today, I'll talk about writing RBS.
-I shared this slides on Twitter with rubykaigi hashtag. So if you want to see the slides, please check my tweet.
+I'v already shared this slides on Twitter with rubykaigi hashtag. So if you want to see the slides, please check my tweet.
 
 ## Self-introduction
 
