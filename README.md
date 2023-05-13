@@ -6,3 +6,4 @@ This document is the presentation material for my talk at RubyKaigi 2023.
 * [preparation.md](./preparation.md) is the preparation article. https://pocke.hatenablog.com/entry/2023/05/08/184814
 * [memo.md](./memo.md) is the memo for the talk.
 * [rbs.rake](./rbs.rake) is the rake task that is used in this talk.
+* https://github.com/ruby/rubyci/compare/18eb6622350d62c486972d64a83c238a843b7e7d...pocke:rubyci:add-types The demonstration code is here.
