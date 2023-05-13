@@ -3,13 +3,17 @@
 ## Title
 
 Hello everyone, I'm Masataka Pocke Kuwabara. Today, I'll talk about writing RBS.
+I shared this slides on Twitter with rubykaigi hashtag. So if you want to see the slides, please check my tweet.
 
 ## Self-introduction
 
 First, let me introduce myself.
 
-I'm a software engineer at Money Forward. I am NOT a flat earth believer.
+I'm a software engineer at Money Forward.
+
 In Money Forward, I'm working on the development of a Ruby on Rails application and the maintenance of the RBS project.
+
+BTW, I am NOT a "flat earth believer".
 
 ## For contributors
 
@@ -23,10 +27,18 @@ This talk is divided into two parts.
 
 First, I'll talk about the features of RBS.
 Recently RBS 3.1 was released. RBS 3.1 introduced new features to make it easier to write RBS. So I'd like to introduce them.
+
 ~And I'll also introduce other tools existing before RBS 3.1. I'll use them in the second part, it's a demonstration.~
 
 Second, I'll demonstrate how to develop a Ruby application using RBS. 
-Currently, we can develop Ruby applications using RBS. So I'd like to show you the development experience and the tools we use.
+Currently, I can develop Ruby applications using RBS. So I'd like to show you the development experience and the tools we use.
+
+## What I will NOT talk about in this presentation
+
+This slide shows what I will NOT talk about in this presentation.
+
+First, I do not talk about RBS basics, such as syntax, usage, rbs collection and so on.
+I also do not talk about RBS related tools, such as Steep.
 
 ## The new features of RBS 3.1
 
@@ -38,17 +50,17 @@ The first feature is `rbs subtract`.
 This is a tool to remove duplicate definitions from RBS files.
 
 For example, suppose you have two RBS files, `a.rbs` and `b.rbs`.
-In this case, you can remove duplicate definitions from `a.rbs` by running the first command. It's `rbs subtract a.rbs b.rbs`. It displays the result on the standard output.
+In this case, you can remove duplicate definitions from `a.rbs` by running the first command. The command is `rbs subtract a.rbs b.rbs`. It displays the result on the standard output.
 
 The second command does the same thing, but it overwrites the result to `a.rbs`.
+
+By the way, this feature is originally developed by Saito-san. And I took over the development. Thanks to Saito-san!
 
 #### rbs subtract behavior
 
 Here is an example of the result of `rbs subtract`.
 The `a.rbs` file contains two method definitions, `C#foo` and `C#bar`. And the `b.rbs` file contains one method definition, `C#foo`.
 The result of `rbs subtract` only contains the definition of `C#bar`. Because `C#foo` is already defined in `b.rbs`, so it is removed from the result.
-
-TOOD: demo
 
 
 #### why rbs subtract is necessary
@@ -99,6 +111,10 @@ Then, write type definitions under `sig/hand-written/` directory. You can write 
 
 After that, run `rbs subtract` to remove duplication from the generated RBS files. This command removes duplication from the generated RBS files and overwrites the result to the `sig/prototype/` directory.
 Finally, the generated RBS and the hand-written RBS are available. You can type-check your application using these RBS files.
+
+#### For more information
+
+If you want to know more about `rbs subtract`, please see the links.
 
 ### rbs parse
 
