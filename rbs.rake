@@ -27,7 +27,7 @@ namespace :rbs do
     subtrahends = Rails.root.glob('sig/*')
       .reject { |path| path == prototype_path || path == rbs_rails_path }
       .map { |path| "--subtrahend=#{path}" }
-    sh 'rbs', 'subtract', '--write', 'sig/prototype', 'sig/rbs_rails', 'sig/handwritten', *subtrahends
+    sh 'rbs', 'subtract', '--write', 'sig/prototype', 'sig/rbs_rails', *subtrahends
   end
 
   task :validate do
